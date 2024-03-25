@@ -1,4 +1,4 @@
-import { ChatInputCommandInteraction, Client } from "discord.js";
+import { type ChatInputCommandInteraction, type Client } from "discord.js";
 import { commands } from "../commands";
 
 async function handleSlashCommand(
@@ -10,7 +10,7 @@ async function handleSlashCommand(
     console.log(`Command ${interaction.commandName} not found`);
     return;
   }
-  command.run(client, interaction);
+  return await command.run(client, interaction);
 }
 
 export default (client: Client) => {

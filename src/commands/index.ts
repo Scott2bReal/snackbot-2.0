@@ -1,12 +1,12 @@
 import {
-  ChatInputApplicationCommandData,
-  Client,
-  CommandInteraction,
+  type ChatInputApplicationCommandData,
+  type Client,
+  type CommandInteraction,
 } from "discord.js";
 import { example } from "./example";
 
 export interface Command extends ChatInputApplicationCommandData {
-  run: (client: Client, interaction: CommandInteraction) => void;
+  run: (client: Client, interaction: CommandInteraction) => Promise<void>;
 }
 
 /**

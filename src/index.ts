@@ -13,7 +13,7 @@ const client = new Client({
   ]
 })
 
-client.login(config.token)
+void client.login(config.token)
 
 // Register listeners
 ready(client)
