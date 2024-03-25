@@ -1,7 +1,7 @@
-import { Client } from 'discord.js'
-import {config} from './config'
-import ready from './listeners/ready'
-import interactionCreate from './listeners/interactionCreate'
+import { Client } from "discord.js"
+import { config } from "./config"
+import ready from "./listeners/ready"
+import interactionCreate from "./listeners/interactionCreate"
 
 const client = new Client({
   intents: [
@@ -10,7 +10,7 @@ const client = new Client({
     "GuildMessageReactions",
     "MessageContent",
     "GuildPresences",
-  ]
+  ],
 })
 
 void client.login(config.token)

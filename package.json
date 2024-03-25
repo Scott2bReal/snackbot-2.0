@@ -4,7 +4,9 @@
 		"check": "tsc --noEmit --pretty",
 		"build": "tsc",
 		"start": "node --env-file=.env dist/index.js",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "format": "prettier --check ./src",
+    "format:fix": "prettier --write ./src"
 	},
 	"engines": {
 		"node": ">=20.11"
