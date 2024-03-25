@@ -1,0 +1,23 @@
+root: true
+parser: "@typescript-eslint/parser"
+parserOptions:
+  project: "./tsconfig.json"
+plugins:
+  - '@typescript-eslint'
+  - drizzle
+extends:
+  - plugin:@typescript-eslint/recommended-type-checked
+  - plugin:@typescript-eslint/stylistic-type-checked
+  - plugin:drizzle/all
+rules: {
+  "@typescript-eslint/array-type": "off",
+  "@typescript-eslint/consistent-type-definitions": "off",
+  "@typescript-eslint/switch-exhaustiveness-check": "error",
+  "@typescript-eslint/consistent-type-imports": [
+    "warn",
+    {
+      prefer: "type-imports",
+      fixStyle: "inline-type-imports",
+    }
+  ]
+}
