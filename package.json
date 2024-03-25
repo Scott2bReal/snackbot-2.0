@@ -1,0 +1,14 @@
+{
+	"scripts": {
+		"dev": "tsx watch src/index.ts",
+		"check": "tsc --noEmit --pretty"
+	},
+	"dependencies": {
+		"discord.js": "^14.14.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.30",
+		"tsx": "^4.7.1",
+		"typescript": "^5.4.3"
+	}
+}
