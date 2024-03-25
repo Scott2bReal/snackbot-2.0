@@ -1,7 +1,9 @@
 {
 	"scripts": {
-		"dev": "tsx watch src/index.ts",
-		"check": "tsc --noEmit --pretty"
+		"dev": "tsx watch --env-file=.env src/index.ts",
+		"check": "tsc --noEmit --pretty",
+    "build": "tsc",
+    "start": "node --env-file=.env dist/index.js"
 	},
 	"dependencies": {
 		"discord.js": "^14.14.1"
