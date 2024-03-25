@@ -15,7 +15,5 @@ export interface Command extends ChatInputApplicationCommandData {
  *
  * New commands can be added by defining the command in its own module, then
  * importing here and including in this array
- *
- * @see https://discord.js.org/#/docs/main/stable/class/Application
  */
 export const commands: Command[] = [example];
