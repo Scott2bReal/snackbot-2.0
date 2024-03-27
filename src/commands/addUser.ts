@@ -20,7 +20,6 @@ export const addUser: Command = {
   run: async (_, interaction) => {
     try {
       const username = interaction.options.data[0]?.user?.username
-      console.log(interaction.options.data)
       if (username === undefined) {
         await interaction.reply({
           ephemeral: true,
