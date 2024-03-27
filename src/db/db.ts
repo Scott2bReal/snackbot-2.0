@@ -1,7 +1,6 @@
 import { drizzle } from "drizzle-orm/postgres-js"
 import { config } from "../config"
 import postgres from "postgres"
-import schema from "./schema"
 
 const { databaseUrl } = config
 
@@ -22,6 +21,4 @@ if (process.env.NODE_ENV !== "production") {
   globalForDb.conn = connection
 }
 
-export const db = drizzle(connection, {
-  schema,
-})
+export const db = drizzle(connection)

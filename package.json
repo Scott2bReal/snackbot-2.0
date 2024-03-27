@@ -6,7 +6,10 @@
 		"start": "node --env-file=.env dist/index.js",
 		"lint": "eslint ./src",
 		"format": "prettier --check ./src",
-		"format:fix": "prettier --write ./src"
+		"format:fix": "prettier --write ./src",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:push": "drizzle-kit push:pg",
+    "db:studio": "drizzle-kit studio"
 	},
 	"engines": {
 		"node": ">=20.11"

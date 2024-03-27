@@ -9,7 +9,7 @@ export const user = pgTable(
   },
   (users) => {
     return {
-      nameIndex: index("name_index").on(users.name),
+      nameIndex: index("user_name_index").on(users.name),
     }
   },
 )

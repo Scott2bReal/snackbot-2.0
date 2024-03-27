@@ -15,7 +15,7 @@ const getById = async (id: number): Promise<User> => {
 
 const create = async (name: string): Promise<NewUser> => {
   const result = await db.insert(user).values({ name }).returning()
-  return userInsertSchema.parse(result)
+  return userInsertSchema.parse(result[0])
 }
 
 const createMany = async (names: string[]): Promise<NewUser[]> => {
@@ -23,12 +23,12 @@ const createMany = async (names: string[]): Promise<NewUser[]> => {
     .insert(user)
     .values(names.map((name) => ({ name })))
     .returning()
-  return result
+  return userInsertSchema.array().parse(result)
 }
 
-const deleteById = async (id: number): Promise<User> => {
+const deleteById = async (id: number): Promise<User[]> => {
   const result = await db.delete(user).where(eq(user.id, id)).returning()
-  return userSelectSchema.parse(result)
+  return result
 }
 
 export const userQueries = {

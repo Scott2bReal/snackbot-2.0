@@ -9,21 +9,21 @@
 //   expected  Int
 // }
 
-import { index, pgTable, uuid, varchar } from "drizzle-orm/pg-core"
+import { index, pgTable, serial, varchar } from "drizzle-orm/pg-core"
 import { user } from "./user"
 
 export const event = pgTable(
   "event",
   {
-    id: uuid("id").primaryKey(),
+    id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }),
     date: varchar("date", { length: 256 }),
-    requesterId: uuid("requester_id").references(() => user.id),
+    requesterId: serial("requester_id").references(() => user.id),
   },
   (event) => {
     return {
-      dateIndex: index("date_index").on(event.date),
-      nameIndex: index("name_index").on(event.name),
+      dateIndex: index("event_date_index").on(event.date),
+      nameIndex: index("event_name_index").on(event.name),
     }
   },
 )
