@@ -19,11 +19,17 @@ const nodeEnvSchema = z.union([
 const nodeEnv = nodeEnvSchema.parse(process.env.NODE_ENV)
 
 const discordTokenSchema = z.string().min(1)
-const discordToken = discordTokenSchema.parse(process.env.DISCORD_BOT_TOKEN)
+const discordToken = discordTokenSchema.parse(
+  nodeEnv !== "production"
+    ? process.env.DISCORD_BOT_TOKEN_TEST
+    : process.env.DISCORD_BOT_TOKEN,
+)
 
 const discordClientIdSchema = z.string().min(1)
 const discordClientId = discordClientIdSchema.parse(
-  process.env.DISCORD_CLIENT_ID,
+  nodeEnv !== "production"
+    ? process.env.DISCORD_CLIENT_ID_TEST
+    : process.env.DISCORD_CLIENT_ID,
 )
 
 const databaseUrlSchema = z.string().min(1)
