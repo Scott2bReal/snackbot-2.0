@@ -13,7 +13,7 @@ const client = new Client({
   ],
 })
 
-void client.login(config.token)
+void client.login(config.discordToken)
 
 // Register listeners
 ready(client)
