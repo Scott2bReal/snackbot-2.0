@@ -1,7 +1,7 @@
 import { Client } from "discord.js"
-import { config } from "./config"
 import ready from "./listeners/ready"
 import interactionCreate from "./listeners/interactionCreate"
+import { env } from "./config/env"
 
 const client = new Client({
   intents: [
@@ -13,7 +13,7 @@ const client = new Client({
   ],
 })
 
-void client.login(config.discordToken)
+void client.login(env.discordToken)
 
 // Register listeners
 ready(client)
