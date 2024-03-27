@@ -1,9 +1,10 @@
-import { index, pgTable, uuid, varchar } from "drizzle-orm/pg-core"
+import { index, pgTable, serial, varchar } from "drizzle-orm/pg-core"
+import { createInsertSchema, createSelectSchema } from "drizzle-zod"
 
 export const user = pgTable(
   "user",
   {
-    id: uuid("id").primaryKey(),
+    id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }),
   },
   (users) => {
@@ -14,4 +15,6 @@ export const user = pgTable(
 )
 
 export type User = typeof user.$inferSelect
+export const userSelectSchema = createSelectSchema(user)
 export type NewUser = typeof user.$inferInsert
+export const userInsertSchema = createInsertSchema(user)

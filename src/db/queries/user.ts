@@ -1,11 +1,39 @@
 import { eq } from "drizzle-orm"
-import { db } from "../schema"
-import { user } from "../schema/user"
+import {
+  type NewUser,
+  type User,
+  user,
+  userSelectSchema,
+  userInsertSchema,
+} from "../schema/user"
+import { db } from "../db"
 
-const getUserById = async (id: string) => {
-  return await db.select().from(user).where(eq(user.id, id))
+const getById = async (id: number): Promise<User> => {
+  const result = await db.selectDistinct().from(user).where(eq(user.id, id))
+  return userSelectSchema.parse(result)
+}
+
+const create = async (name: string): Promise<NewUser> => {
+  const result = await db.insert(user).values({ name }).returning()
+  return userInsertSchema.parse(result)
+}
+
+const createMany = async (names: string[]): Promise<NewUser[]> => {
+  const result = await db
+    .insert(user)
+    .values(names.map((name) => ({ name })))
+    .returning()
+  return result
+}
+
+const deleteById = async (id: number): Promise<User> => {
+  const result = await db.delete(user).where(eq(user.id, id)).returning()
+  return userSelectSchema.parse(result)
 }
 
 export const userQueries = {
-  getUserById,
+  getById,
+  create,
+  createMany,
+  deleteById,
 }
