@@ -36,7 +36,7 @@ const databaseUrlSchema = z.string().min(1)
 const databaseUrl = databaseUrlSchema.parse(process.env.DATABASE_URL)
 
 // Don't forget to include new variables in the config object!
-export const config = {
+export const env = {
   discordToken,
   discordClientId,
   nodeEnv,

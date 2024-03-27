@@ -7,9 +7,9 @@
 		"lint": "eslint ./src",
 		"format": "prettier --check ./src",
 		"format:fix": "prettier --write ./src",
-		"db:generate": "drizzle-kit generate:pg",
-		"db:push": "drizzle-kit push:pg",
-		"db:studio": "drizzle-kit studio"
+		"db:generate": "drizzle-kit generate:pg --config=./src/config/drizzle.config.ts",
+		"db:push": "drizzle-kit push:pg --config=./src/config/drizzle.config.ts",
+		"db:studio": "drizzle-kit studio --config=./src/config/drizzle.config.ts"
 	},
 	"engines": {
 		"node": ">=20.11"

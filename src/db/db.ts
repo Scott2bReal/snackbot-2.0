@@ -1,8 +1,8 @@
 import { drizzle } from "drizzle-orm/postgres-js"
-import { config } from "../config"
 import postgres from "postgres"
+import { env } from "../config/env"
 
-const { databaseUrl } = config
+const { databaseUrl } = env
 
 // Can be used to conditionally set this, i.e. in dev vs. production
 const connectionString = databaseUrl
