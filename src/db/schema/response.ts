@@ -15,7 +15,11 @@ import { event } from "./events"
 
 export const response = pgTable("response", {
   id: serial("id").primaryKey(),
-  userId: serial("user_id").references(() => user.id).notNull(),
+  userId: serial("user_id")
+    .references(() => user.id)
+    .notNull(),
   available: boolean("available").notNull(),
-  eventId: serial("event_id").references(() => event.id).notNull(),
+  eventId: serial("event_id")
+    .references(() => event.id)
+    .notNull(),
 })

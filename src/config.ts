@@ -1,15 +1,15 @@
 import { z } from "zod"
 
 /**
-* Here's where we parse the env variables and export them as a typed config object.
-*
-* The pattern for defining new config variables is as follows:
-*   * Define a schema for the variable using zod.
-*   * Parse the variable using the schema.
-*   * Include the variable in the exported config object.
-*
-* @see https://zod.dev/?id=basic-usage
-*/
+ * Here's where we parse the env variables and export them as a typed config object.
+ *
+ * The pattern for defining new config variables is as follows:
+ *   * Define a schema for the variable using zod.
+ *   * Parse the variable using the schema.
+ *   * Include the variable in the exported config object.
+ *
+ * @see https://zod.dev/?id=basic-usage
+ */
 
 const nodeEnvSchema = z.union([
   z.literal("production"),
