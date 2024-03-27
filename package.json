@@ -7,9 +7,9 @@
 		"lint": "eslint ./src",
 		"format": "prettier --check ./src",
 		"format:fix": "prettier --write ./src",
-    "db:generate": "drizzle-kit generate:pg",
-    "db:push": "drizzle-kit push:pg",
-    "db:studio": "drizzle-kit studio"
+		"db:generate": "drizzle-kit generate:pg",
+		"db:push": "drizzle-kit push:pg",
+		"db:studio": "drizzle-kit studio"
 	},
 	"engines": {
 		"node": ">=20.11"
@@ -30,6 +30,7 @@
 		"drizzle-kit": "^0.20.14",
 		"eslint": "^8.57.0",
 		"eslint-plugin-drizzle": "^0.2.3",
+		"pg": "^8.11.3",
 		"prettier": "^3.2.5",
 		"tsx": "^4.7.1",
 		"typescript": "^5.4.3"
