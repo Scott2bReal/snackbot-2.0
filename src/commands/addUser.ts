@@ -5,12 +5,12 @@ import { userQueries } from "../db/queries/user"
 /** @see https://discord-api-types.dev/api/discord-api-types-v10/enum/ApplicationCommandOptionType#User */
 const commandOptionType: ApplicationCommandOptionType.User = 6
 
-const commandOptions: Command['options'] = [
+const commandOptions: Command["options"] = [
   {
     name: "user",
     description: "Add a user to the database",
     type: commandOptionType,
-  }
+  },
 ]
 
 export const addUser: Command = {
@@ -23,7 +23,7 @@ export const addUser: Command = {
       if (username === undefined) {
         await interaction.reply({
           ephemeral: true,
-          content: "Error finding username"
+          content: "Error finding username",
         })
         throw new Error("Error finding username")
       }
